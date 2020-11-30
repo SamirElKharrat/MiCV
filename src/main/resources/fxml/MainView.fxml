@@ -53,7 +53,7 @@
                      </graphic></MenuItem>
                   <MenuItem mnemonicParsing="false" onAction="#onGuardarComoAction" text="Guardar como..." />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" onAction="#onAcercaAction" text="Salir">
+                  <MenuItem mnemonicParsing="false" onAction="#onCerrarAction" text="Salir">
                      <accelerator>
                         <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator></MenuItem>
@@ -61,7 +61,7 @@
 				</Menu>
 				<Menu mnemonicParsing="false" text="A_yuda">
 					<items>
-						<MenuItem mnemonicParsing="false" text="Acerca de..." />
+						<MenuItem mnemonicParsing="false" onAction="#onAcercaDeAction" text="Acerca de..." />
 					</items>
 				</Menu>
 			</menus>
