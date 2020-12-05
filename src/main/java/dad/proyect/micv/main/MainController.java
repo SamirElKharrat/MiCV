@@ -7,9 +7,13 @@ import java.util.ResourceBundle;
 
 import com.google.gson.JsonSyntaxException;
 
+import dad.proyect.micv.controllers.ContactoController;
+import dad.proyect.micv.controllers.ExperienciaController;
+import dad.proyect.micv.controllers.FormacionController;
+import dad.proyect.micv.controllers.PersonalController;
 import dad.proyect.micv.model.CV;
-import dad.proyect.micv.personal.PersonalController;
 import dad.proyect.micv.util.JSONUtils;
+import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
@@ -27,6 +31,9 @@ public class MainController implements Initializable {
 	// controllers
 	
 	private PersonalController personalController = new PersonalController();
+	private ContactoController contactoController = new ContactoController();
+	private FormacionController tituloController = new FormacionController();
+	private ExperienciaController experienciaController = new ExperienciaController();
 	// TODO resto de controladores
 	
 	// model
@@ -63,6 +70,9 @@ public class MainController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 
 		personalTab.setContent(personalController.getView());
+		contactoTab.setContent(contactoController.getView());
+		formacionTab.setContent(tituloController.getView());
+		experienciaTab.setContent(experienciaController.getView());
 		
 		cv.addListener((o, ov, nv) -> onCVChanged(o, ov, nv));
 		
@@ -73,11 +83,17 @@ public class MainController implements Initializable {
 
 		if (ov != null) {
 			personalController.personalProperty().unbind();
+			contactoController.contactoProperty().unbind();
+			tituloController.tituloProperty().unbind();
+			experienciaController.experienciaProperty().unbind();
 			// TODO desbindear el resto de controladores
 		}
 		
 		if (nv != null) {
 			personalController.personalProperty().bind(nv.personalProperty());
+			contactoController.contactoProperty().bind(nv.contactoProperty());
+			tituloController.tituloProperty().bind(nv.tituloProperty());
+			experienciaController.experienciaProperty().bind(nv.experienciaProperty());
 			// TODO bindear el resto de controladores
 		}
 		
@@ -91,15 +107,15 @@ public class MainController implements Initializable {
     void onAbrirAction(ActionEvent event) {
 
     	FileChooser fileChooser = new FileChooser();
-    	fileChooser.setTitle("Abrir un currículum");
-    	fileChooser.getExtensionFilters().add(new ExtensionFilter("Currículum (*.cv)", "*.cv"));
+    	fileChooser.setTitle("Abrir un currÃ­culum");
+    	fileChooser.getExtensionFilters().add(new ExtensionFilter("CurrÃ­culum (*.cv)", "*.cv"));
     	fileChooser.getExtensionFilters().add(new ExtensionFilter("Todos los archivos (*.*)", "*.*"));
     	File cvFile = fileChooser.showOpenDialog(App.getPrimaryStage());
     	if (cvFile != null) {
     		
     		try {
     			cv.set(JSONUtils.fromJson(cvFile, CV.class));
-    			App.info("Se ha abierto el fichero " + cvFile.getName() + " correctamente.", "Pues eso...");
+    			App.info("Se ha abierto el fichero " + cvFile.getName() + " correctamente.", "");
 			} catch (JsonSyntaxException|IOException e) {
 				App.error("Ha ocurrido un error al abrir " + cvFile, e.getMessage());
 			}
@@ -115,6 +131,7 @@ public class MainController implements Initializable {
 
     @FXML
     void onCerrarAction(ActionEvent event) {
+    	Platform.exit();
 
     }
 
@@ -127,8 +144,8 @@ public class MainController implements Initializable {
     void onGuardarComoAction(ActionEvent event) {
 
 	    	FileChooser fileChooser = new FileChooser();
-	    	fileChooser.setTitle("Guardar un currículum");
-	    	fileChooser.getExtensionFilters().add(new ExtensionFilter("Currículum (*.cv)", "*.cv"));
+	    	fileChooser.setTitle("Guardar un currï¿½culum");
+	    	fileChooser.getExtensionFilters().add(new ExtensionFilter("CurrÃ­culum (*.cv)", "*.cv"));
 	    	fileChooser.getExtensionFilters().add(new ExtensionFilter("Todos los archivos (*.*)", "*.*"));
 	    	File cvFile = fileChooser.showSaveDialog(App.getPrimaryStage());
 	    	if (cvFile != null) {
