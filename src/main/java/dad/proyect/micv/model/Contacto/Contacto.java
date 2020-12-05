@@ -10,6 +10,7 @@ public class Contacto {
 	public ListProperty<Telefono> telefono = new SimpleListProperty<Telefono>(FXCollections.observableArrayList());
 	public ListProperty<Email> email = new SimpleListProperty<Email>(FXCollections.observableArrayList());
 	public ListProperty<Web> web = new SimpleListProperty<Web>(FXCollections.observableArrayList());
+	
 	public final ListProperty<Telefono> telefonoProperty() {
 		return this.telefono;
 	}

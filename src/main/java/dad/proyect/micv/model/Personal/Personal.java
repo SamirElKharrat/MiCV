@@ -1,4 +1,4 @@
-package dad.proyect.micv.model;
+package dad.proyect.micv.model.Personal;
 
 import java.time.LocalDate;
 

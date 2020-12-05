@@ -1,7 +1,5 @@
 package dad.proyect.micv.controllers;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 
 
@@ -11,8 +9,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import dad.proyect.micv.model.Personal;
-import dad.proyect.micv.model.nacionalidad;
+import dad.proyect.micv.model.Personal.Personal;
+import dad.proyect.micv.model.Personal.nacionalidad;
 import dad.proyect.micv.util.Lector;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
@@ -71,9 +69,6 @@ public class PersonalController implements Initializable {
     private ListView<nacionalidad> nacionalidadList;
     
     private List<String> listadonacionalidad = new ArrayList<>();    
-
-    @FXML
-    private Button masButton;
 
     @FXML
     private Button menosButton;

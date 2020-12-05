@@ -9,6 +9,8 @@ public class Telefono {
 	
 	public StringProperty numero = new SimpleStringProperty();
 	public ObjectProperty<TipoTelefono> tipoTelefono = new SimpleObjectProperty<TipoTelefono>();
+	
+	
 	public final StringProperty numeroProperty() {
 		return this.numero;
 	}

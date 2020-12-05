@@ -20,8 +20,8 @@
                <right>
                   <VBox prefHeight="200.0" spacing="5.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickAddTelefono" text="Añadir" />
-                        <Button fx:id="btEliminarT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickRemoveTelefono" text="Eliminar" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onActionAñadirT" text="Añadir" />
+                        <Button fx:id="btEliminarT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OnEliminarT" text="Eliminar" />
                      </children>
                      <padding>
                         <Insets left="5.0" />
@@ -29,7 +29,7 @@
                   </VBox>
                </right>
                <center>
-                  <TableView fx:id="telefonos" editable="true" maxWidth="1.7976931348623157E308" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <TableView fx:id="telefono" editable="true" maxWidth="1.7976931348623157E308" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <columns>
                         <TableColumn fx:id="numero" minWidth="50.0" prefWidth="100.0" text="Número" />
                         <TableColumn fx:id="tipo" prefWidth="100.0" text="Tipo" />
@@ -48,8 +48,8 @@
                <right>
                   <VBox prefHeight="200.0" spacing="5.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickAddCorreo" text="Añadir" />
-                        <Button fx:id="btEliminarC" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickRemoveCorreo" text="Eliminar" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OnActionAñadirC" text="Añadir" />
+                        <Button fx:id="btEliminarC" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OnEliminarC" text="Eliminar" />
                      </children>
                      <padding>
                         <Insets left="5.0" />
@@ -75,8 +75,8 @@
                <right>
                   <VBox prefHeight="200.0" spacing="5.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickAddWeb" text="Añadir" />
-                        <Button fx:id="btEliminarW" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onClickRemoveWeb" text="Eliminar" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OnActionAñadirW" text="Añadir" />
+                        <Button fx:id="btEliminarW" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OnEliminarW" text="Eliminar" />
                      </children>
                      <padding>
                         <Insets left="5.0" />
