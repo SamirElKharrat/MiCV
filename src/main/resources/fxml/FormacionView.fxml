@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="view" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <TableView fx:id="formacion" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="desde" prefWidth="75.0" text="Desde" />
+          <TableColumn fx:id="hasta" prefWidth="75.0" text="Hasta" />
+            <TableColumn fx:id="deno" prefWidth="91.0" text="Denominación" />
+            <TableColumn fx:id="org" prefWidth="79.0" text="Organizador" />
+        </columns>
+         <BorderPane.margin>
+            <Insets right="5.0" />
+         </BorderPane.margin>
+      </TableView>
+   </center>
+   <right>
+      <VBox prefHeight="395.0" prefWidth="65.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="añadir" mnemonicParsing="false" onAction="#OnAñadir" prefHeight="25.0" prefWidth="60.0" text="Añadir" />
+            <Button fx:id="eliminar" mnemonicParsing="false" onAction="#onEliminar" prefHeight="25.0" prefWidth="60.0" text="Eliminar" />
+         </children>
+         <BorderPane.margin>
+            <Insets top="5.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
+</BorderPane>
