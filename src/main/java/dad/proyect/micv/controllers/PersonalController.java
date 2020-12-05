@@ -1,4 +1,4 @@
-package dad.proyect.micv.personal;
+package dad.proyect.micv.controllers;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -118,6 +118,7 @@ public class PersonalController implements Initializable {
 			localidadText.textProperty().unbindBidirectional(ov.localidadProperty());
 			paisBox.valueProperty().unbindBidirectional(ov.paisProperty());
 			nacionalidadList.itemsProperty().unbind();
+			nacionalidadSeleccionada.unbind();
 			menosButton.disableProperty().unbind();
 		}
 
@@ -150,8 +151,8 @@ public class PersonalController implements Initializable {
 		if (result.isPresent()){
 		    nacionalidad nacionalidades = new nacionalidad();
 		    nacionalidades.setDenominacion(result.get());
-		    
-		    personal.get().getNacionalidades().add(nacionalidades);
+			
+			personal.get().getNacionalidades().add(nacionalidades);
 		}
 	}
 	
