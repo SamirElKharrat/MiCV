@@ -19,6 +19,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.ComboBoxTableCell;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 public class ContactoController implements Initializable {
 
@@ -68,6 +70,19 @@ public class ContactoController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		//Configurar Tabla Telefonos
+		numero.setCellValueFactory(v -> v.getValue().numeroProperty());
+		numero.setCellFactory(TextFieldTableCell.forTableColumn());
+		
+		tipo.setCellValueFactory(v -> v.getValue().tipoTelefonoProperty());
+		tipo.setCellFactory(ComboBoxTableCell.forTableColumn(TipoTelefono.values()));
+		
+		//Configurar Tabla Email
+		email.setCellValueFactory(v -> v.getValue().direccionProperty());
+		email.setCellFactory(TextFieldTableCell.forTableColumn());
+		
+		//Configurar Tabla Web
+		url.setCellValueFactory(v -> v.getValue().urlProperty());
+		url.setCellFactory(TextFieldTableCell.forTableColumn());
 
 		this.contacto.addListener((o, ov, nv) -> OnContactoChanged(o, ov, nv));
 		
