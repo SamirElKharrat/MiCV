@@ -1,5 +1,6 @@
 package dad.proyect.micv.model;
 
+import dad.proyect.micv.model.Conocimientos.Conocimiento;
 import dad.proyect.micv.model.Contacto.Contacto;
 import dad.proyect.micv.model.Personal.Personal;
 import javafx.beans.property.ListProperty;
@@ -16,6 +17,7 @@ public class CV {
 	private ObjectProperty<Contacto> contacto = new SimpleObjectProperty<Contacto>(new Contacto());
 	private ListProperty<Titulo> titulo = new SimpleListProperty<Titulo>(FXCollections.observableArrayList());
 	private ListProperty<Experiencia> experiencia = new SimpleListProperty<Experiencia>(FXCollections.observableArrayList());
+	private ListProperty<Conocimiento> conocimiento = new SimpleListProperty<Conocimiento>(FXCollections.observableArrayList());
 
 	public final ObjectProperty<Personal> personalProperty() {
 		return this.personal;
@@ -69,6 +71,20 @@ public class CV {
 
 	public final void setExperiencia(final ObservableList<Experiencia> experiencia) {
 		this.experienciaProperty().set(experiencia);
+	}
+
+	public final ListProperty<Conocimiento> conocimientoProperty() {
+		return this.conocimiento;
+	}
+	
+
+	public final ObservableList<Conocimiento> getConocimiento() {
+		return this.conocimientoProperty().get();
+	}
+	
+
+	public final void setConocimiento(final ObservableList<Conocimiento> conocimiento) {
+		this.conocimientoProperty().set(conocimiento);
 	}
 
 	
