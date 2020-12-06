@@ -22,6 +22,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Tab;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
@@ -40,6 +42,7 @@ public class MainController implements Initializable {
 	// model
 	
 	private ObjectProperty<CV> cv = new SimpleObjectProperty<>();
+	private File file;
 	
 	// view
 	
@@ -117,6 +120,7 @@ public class MainController implements Initializable {
     		
     		try {
     			cv.set(JSONUtils.fromJson(cvFile, CV.class));
+    			file = cvFile;
     			App.info("Se ha abierto el fichero " + cvFile.getName() + " correctamente.", "");
 			} catch (JsonSyntaxException|IOException e) {
 				App.error("Ha ocurrido un error al abrir " + cvFile, e.getMessage());
@@ -128,6 +132,11 @@ public class MainController implements Initializable {
 
     @FXML
     void onAcercaDeAction(ActionEvent event) {
+    	Alert alert = new Alert(AlertType.INFORMATION);
+    	alert.setTitle("Proyecto DAD MiCV");
+    	alert.setHeaderText("MiCV");
+    	alert.setContentText("Hecho por Samir El Kharrat Martín 2ºCFGS DAM A");
+		alert.showAndWait();
 
     }
 
@@ -139,7 +148,15 @@ public class MainController implements Initializable {
 
     @FXML
     void onGuardarAction(ActionEvent event) {
-
+    	if (file == null) {
+    		onGuardarComoAction(event);
+    	} else {
+    		try {
+    			JSONUtils.toJson(file, cv.get());
+    		} catch (JsonSyntaxException|IOException e) {
+				App.error("Ha ocurrido un error al guardar " + file, e.getMessage());
+			}
+    	}
     }
 
     @FXML
@@ -154,6 +171,7 @@ public class MainController implements Initializable {
 
 	    		try {
 	    			JSONUtils.toJson(cvFile, cv.get());
+	    			file = cvFile;
 				} catch (JsonSyntaxException|IOException e) {
 					App.error("Ha ocurrido un error al guardar " + cvFile, e.getMessage());
 				}
@@ -164,8 +182,8 @@ public class MainController implements Initializable {
 
     @FXML
     void onNuevoAction(ActionEvent event) {
-    	System.out.println("Nuevo");
     	cv.set(new CV());
+    	file = null;
     }
     
 }
