@@ -7,10 +7,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane fx:id="view" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="view" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <TableView fx:id="conocimientos" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="conocimientos" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="deno" prefWidth="91.0" text="Denominación" />
           <TableColumn fx:id="nivel" prefWidth="72.0" text="Nivel" />
@@ -20,9 +19,9 @@
    <right>
       <VBox prefHeight="395.0" prefWidth="133.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Añadir Conocimiento" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Añadir Idioma" />
-            <Button fx:id="eliminar" mnemonicParsing="false" prefHeight="25.0" prefWidth="127.0" text="Eliminar" />
+            <Button mnemonicParsing="false" onAction="#OnAñadirC" text="Añadir Conocimiento" />
+            <Button mnemonicParsing="false" onAction="#OnAñadirI" prefHeight="25.0" prefWidth="128.0" text="Añadir Idioma" />
+            <Button fx:id="eliminar" mnemonicParsing="false" onAction="#OnEliminar" prefHeight="25.0" prefWidth="127.0" text="Eliminar" />
          </children>
          <BorderPane.margin>
             <Insets left="5.0" top="5.0" />

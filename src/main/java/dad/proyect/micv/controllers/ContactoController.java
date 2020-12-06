@@ -154,8 +154,8 @@ public class ContactoController implements Initializable {
 		grid.setVgap(10);
 		grid.setPadding(new Insets(20, 150, 10, 10));
 		
-		TextField tfNumero = new TextField();
-		tfNumero.setPromptText("Número de teléfono");
+		TextField tele = new TextField();
+		tele.setPromptText("Número de teléfono");
 		
 		ComboBox<TipoTelefono> cbTt = new ComboBox<>();
 		cbTt.getItems().addAll(TipoTelefono.values());
@@ -165,21 +165,21 @@ public class ContactoController implements Initializable {
 		nodeBtAnadir.setDisable(true);
 		
 		nodeBtAnadir.disableProperty().bind(
-				tfNumero.textProperty().isEmpty().or(
+				tele.textProperty().isEmpty().or(
 				cbTt.valueProperty().isNull()));
 		
 		grid.add(new Label("Número:"), 0, 0);
-		grid.add(tfNumero, 1, 0);
+		grid.add(tele, 1, 0);
 		grid.add(new Label("Tipo:"), 0, 1);
 		grid.add(cbTt, 1, 1);
 		
 		dialog.getDialogPane().setContent(grid);
 		
-		Platform.runLater(() -> tfNumero.requestFocus());
+		Platform.runLater(() -> tele.requestFocus());
 		
 		dialog.setResultConverter(dialogButton -> {
 			if (dialogButton == btAnadir) {
-				return new Pair<>(tfNumero.getText(), cbTt.getSelectionModel().getSelectedItem());
+				return new Pair<>(tele.getText(), cbTt.getSelectionModel().getSelectedItem());
 			}
 			
 			return null;
@@ -199,11 +199,10 @@ public class ContactoController implements Initializable {
 	@FXML
 	public void OnEliminarT(ActionEvent event) {
 		String title = "Eliminar teléfono";
-		String header = "Antes de continuar, confirme";
-		String content = "Esta operación es irreversible.\n¿Está seguro de borrar el teléfono?";
+		String content = "¿Está seguro de borrar el teléfono?";
 		Telefono telefono = telefonoSeleccionado.get();
 		
-		if (telefono != null && App.confirmacion(title, header, content))
+		if (telefono != null && App.confirmacion(title, content))
 			contacto.get().getTelefono().remove(telefono);
 		
 	}
@@ -233,11 +232,10 @@ public class ContactoController implements Initializable {
 	@FXML
 	public void OnEliminarC(ActionEvent event) {
 		String title = "Eliminar correo";
-		String header = "Antes de continuar.";
 		String content = "¿Está seguro de borrar el correo?";
 		Email email = emailSeleccionado.get();
 		
-		if (email != null && App.confirmacion(title, header, content))
+		if (email != null && App.confirmacion(title, content))
 			contacto.get().getTelefono().remove(email);
 	}
 	
@@ -265,11 +263,10 @@ public class ContactoController implements Initializable {
 	@FXML
 	public void OnEliminarW(ActionEvent event) {
 		String title = "Eliminar url";
-		String header = "Antes de continuar.";
 		String content = "¿Está seguro de borrar el url?";
 		Web web = webSeleccionada.get();
 		
-		if (web != null && App.confirmacion(title, header, content))
+		if (web != null && App.confirmacion(title, content))
 			contacto.get().getWeb().remove(web);
 	}
 

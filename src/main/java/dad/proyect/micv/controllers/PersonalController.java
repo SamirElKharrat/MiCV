@@ -2,7 +2,6 @@ package dad.proyect.micv.controllers;
 
 import java.io.IOException;
 
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +33,7 @@ public class PersonalController implements Initializable {
 	
 
 	// model
-	private ObjectProperty<Personal> personal = new SimpleObjectProperty<Personal>();
+	private ObjectProperty<Personal> personal = new SimpleObjectProperty<>();
 	private ObjectProperty<nacionalidad> nacionalidadSeleccionada = new SimpleObjectProperty<>();
 
 	// view
@@ -134,8 +133,6 @@ public class PersonalController implements Initializable {
 	
 	@FXML
 	public void OnActionNacionaidad(ActionEvent event) {
-
-
 		ChoiceDialog<String> dialog = new ChoiceDialog<>(listadonacionalidad.get(0), listadonacionalidad);
 		dialog.setTitle("Nueva nacionalidad");
 		dialog.setHeaderText("Añadir Nacionalidad");

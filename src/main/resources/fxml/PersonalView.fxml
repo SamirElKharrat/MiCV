@@ -48,7 +48,7 @@
       <TextField fx:id="postalText" maxWidth="100.0" prefColumnCount="5" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="5" />
       <TextField fx:id="localidadText" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6" />
       <ComboBox fx:id="paisBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-      <ListView fx:id="nacionalidadList" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+      <ListView fx:id="nacionalidadList" editable="true" GridPane.columnIndex="1" GridPane.rowIndex="8" />
       <VBox spacing="5.0" GridPane.columnIndex="2" GridPane.rowIndex="8">
          <children>
             <Button fx:id="masButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#OnActionNacionaidad" text="+" />

@@ -197,11 +197,10 @@ public class FormacionController implements Initializable {
 	@FXML
 	void onEliminar(ActionEvent event) {
 		String title = "Eliminar formación";
-		String header = "Antes de continuar";
 		String content = "¿Está seguro que quiere borrar la formación?";
 		Titulo formacion = tituloSeleccionado.get();
 		
-		if (formacion != null && App.confirmacion(title, header, content))
+		if (formacion != null && App.confirmacion(title, content))
 			titulo.get().remove(formacion);
 	}
 

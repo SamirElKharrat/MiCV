@@ -195,11 +195,10 @@ public class ExperienciaController implements Initializable {
 	@FXML
 	void onEliminar(ActionEvent event) {
 		String title = "Eliminar experiencia";
-		String header = "Antes de continuar";
 		String content = "¿Está seguro que quiere borrar la Experiencia?";
 		Experiencia formacion = experienciaSeleccionada.get();
 		
-		if (formacion != null && App.confirmacion(title, header, content))
+		if (formacion != null && App.confirmacion(title, content))
 			experiencia.get().remove(formacion);
 	}
 

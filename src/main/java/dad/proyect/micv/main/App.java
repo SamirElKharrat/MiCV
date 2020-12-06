@@ -57,11 +57,10 @@ public class App extends Application {
 		alert.showAndWait();
 	}
 	
-	public static boolean confirmacion(String title, String header, String content) {
+	public static boolean confirmacion(String title, String content) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.initOwner(primaryStage);
 		alert.setTitle(title);
-		alert.setHeaderText(header);
 		alert.setContentText(content);
 		
 		Optional<ButtonType> result = alert.showAndWait();
